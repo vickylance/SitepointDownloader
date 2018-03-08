@@ -59,13 +59,13 @@ password = browser.find_element_by_id("user_password")
 username.clear()
 password.clear()
 # Enter the username and password
-username.send_keys("vkkpp@hotmail.com")
-password.send_keys("Rayquaza555!")
+username.send_keys("Userrname")
+password.send_keys("Password")
 # Login to the website
 browser.find_element_by_xpath("//input[@name='commit'][@value='Login']").click()
-# Click on the courses button
-waitForLoad("//a[@class='TypeFilter_Item u-Course']")
-browser.find_element_by_xpath("//a[@class='TypeFilter_Item u-Course']").click()
+# # Click on the courses button
+# waitForLoad("//a[@class='TypeFilter_Item u-Course']")
+# browser.find_element_by_xpath("//a[@class='TypeFilter_Item u-Course']").click()
 
 # def page_has_loaded(driver):
 #     page_state = driver.execute_script('return document.readyState;')
@@ -99,27 +99,27 @@ browser.find_element_by_xpath("//a[@class='TypeFilter_Item u-Course']").click()
 
 # scrollDownAllTheWay(browser)
 
-waitForLoad("//div[@class='LibraryContent_columns']")
-waitForLoad("//a[@class=' LibraryCard u-course']")
-time.sleep(5) # seconds
+# waitForLoad("//div[@class='LibraryContent_columns']")
+# waitForLoad("//a[@class=' LibraryCard u-course']")
+# time.sleep(5) # seconds
 
-all_courses = browser.find_element_by_xpath("//div[@class='LibraryContent_columns']")
-open('test.html', 'w').close()
-with open("test.html", "a") as myfile:
-    myfile.write(unicode(all_courses.get_attribute('innerHTML')).encode('utf8'))
-soup = BeautifulSoup(all_courses.get_attribute('innerHTML'), 'html.parser')
+# all_courses = browser.find_element_by_xpath("//div[@class='LibraryContent_columns']")
+# open('test.html', 'w').close()
+# with open("test.html", "a") as myfile:
+#     myfile.write(unicode(all_courses.get_attribute('innerHTML')).encode('utf8'))
+# soup = BeautifulSoup(all_courses.get_attribute('innerHTML'), 'html.parser')
 
-all_courses = []
+# all_courses = []
 
-open('urls.txt', 'w').close()
-for a in soup.find_all('a', href=True):
-    course_name = a.find("div", class_="f-large f-bold").text
-    all_courses.append([unicode(course_name).encode('utf-8'), unicode(a['href']).encode('utf-8')])
-    with open("urls.txt", "a") as myfile:
-        myfile.write(unicode(course_name).encode('utf-8') + " : " + unicode(a['href']).encode('utf-8') + '\n')
+# open('urls.txt', 'w').close()
+# for a in soup.find_all('a', href=True):
+#     course_name = a.find("div", class_="f-large f-bold").text
+#     all_courses.append([unicode(course_name).encode('utf-8'), unicode(a['href']).encode('utf-8')])
+#     with open("urls.txt", "a") as myfile:
+#         myfile.write(unicode(course_name).encode('utf-8') + "||" + unicode(a['href']).encode('utf-8') + '\n')
 
-print all_courses
-print len(all_courses)
+# print all_courses
+# print len(all_courses)
 
 
 makeDir("video_courses") # To save the text file with download links

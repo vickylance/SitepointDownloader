@@ -14,8 +14,8 @@ response = br.open("https://www.sitepoint.com/premium/l/join?ref_source=premium&
 with open("test.html", "a") as myfile:
     myfile.write(response.read() )
 br.select_form(predicate=lambda frm: 'id' in frm.attrs and frm.attrs['id'] == 'new_user')
-br.form['user[login]'] = 'vkkpp@hotmail.com'
-br.form['user[password]'] = 'Rayquaza555!'
+br.form['user[login]'] = 'Username'
+br.form['user[password]'] = 'Password'
 br.submit()
 
 with open("loggedin.html", "a") as myfile:
